@@ -1,0 +1,414 @@
+@import "../common/mixin.less";
+@import "../common/amination.less";
+
+#wrap{
+    .content{
+        width: 100%;
+        background:gray;
+        overflow: hidden;
+        position: relative;
+        & > ul{
+            position: absolute;
+            width: 100%;
+            left:0;
+            top: 0;
+            transition:1s top;
+            & > li{
+                overflow: hidden;
+                position: relative;
+                background-position:50% 50% !important; 
+                &:nth-of-type(1){
+                     background: url(../img/bg1.jpg) no-repeat;
+                }
+                &:nth-of-type(2){
+                     background: url(../img/bg2.jpg) no-repeat;
+                }
+                &:nth-of-type(3){
+                     background: url(../img/bg3.jpg) no-repeat;
+                }
+                &:nth-of-type(4){
+                     background: url(../img/bg4.jpg) no-repeat;
+                }
+                &:nth-of-type(5){
+                     background: url(../img/bg5.jpg) no-repeat;
+                }
+                & > div{
+                    .juzhong();
+                    width: 1100px;
+                    height: 520px;
+                    &.home{
+                        &:hover{
+                            cursor: pointer;
+                        }
+                        .home1{
+                            transition:1s transform ;
+                            width: 100%;
+                            height: 100%;
+                            ul{
+                                width: 100%;
+                                height: 100%;
+                                position: relative;
+                                perspective: 800px;
+                                transform-style: preserve-3d;
+                                li{
+                                   position: absolute;
+                                   left: 0;
+                                   top: 0;
+                                   width: 100%;
+                                   height: 100%;
+                                   visibility: hidden;
+                                   &:nth-of-type(1){background:#dc6c5f;visibility: visible;}
+                                   &:nth-of-type(2){background:#95dc84;}
+                                   &:nth-of-type(3){background:#64b9d2;}
+                                   &:nth-of-type(4){background:#000000;}
+                                   //类的样式必须写在基础样式下面,否则会被基本样式覆盖
+                                   &.leftHide{
+                                       transform: translateZ(-200px);
+                                       visibility: hidden;
+                                       animation: 1s lh 1 linear;
+                                   }
+                                   &.rightShow{
+                                       transform: translateZ(0px);
+                                       visibility: visible;
+                                       animation: 1s rs 1 linear;
+                                   }
+                                   &.leftShow{
+                                       transform: translateZ(0px);
+                                       visibility: visible;
+                                       animation: 1s ls 1 linear;
+                                   }
+                                   &.rightHide{
+                                       transform: translateZ(-200px);
+                                       visibility: hidden;
+                                       animation: 1s rh 1 linear;
+                                   }
+                                   & > div{
+                                      .commonTitle(); 
+                                      color: white;
+                                      width: 100%;
+                                      text-align: center;
+                                      margin-top: 200px;
+                                   } 
+                                }
+                            }
+                        }
+                        .home2{
+                            transition:1s transform ;
+                            width: 100%;
+                            position: absolute;
+                            left: 0;
+                            bottom:0;
+                            text-align: center;
+                            ul{
+                                li{
+                                    display: inline-block;
+                                    width: 20px;
+                                    height: 20px;
+                                    border-radius: 50%;
+                                    background:rgba(255,255,255,0.5);
+                                    margin: 2px;
+                                    box-shadow:0 0 4px rgba(25,25,25,0.8) ;
+                                    &.active{
+                                        background: white;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.course{
+                        .course1{
+                            margin: 50px;
+                            span{
+                                .commonTitle();
+                            }
+                        }
+                        .course2{
+                            width: 400px;
+                            margin-left: 50px;
+                            p{
+                                .commonText();
+                            }
+                        }
+                        .course3{
+                            width: 480px;
+                            position: absolute;
+                            right: 50px;
+                            top: 70px;
+                            .line{
+                                
+                            }
+                            .item{
+                                width: 120px;
+                                height: 132px;
+                                float: left;
+                                position: relative;
+                                perspective: 500px;
+                                transform-style: preserve-3d;
+                                &:hover{
+                                   .backFace{
+                                       transform: rotateY(360deg);
+                                   } 
+                                   .face{
+                                       transform: rotateY(180deg);
+                                   }
+                                }
+                                .face{
+                                   position: absolute;
+                                   left: 0;
+                                   top: 0;
+                                   width: 100%;
+                                   height: 100%; 
+                                   background: gray;
+                                   background: url(../img/bks.png) no-repeat;
+                                   background-position:50% 50% ;
+                                   //背面隐藏
+                                   backface-visibility: hidden;
+                                   transition:1s transform ;
+                                }
+                                .backFace{
+                                   position: absolute;
+                                   left: 0;
+                                   top: 0;
+                                   width: 100%;
+                                   height: 100%; 
+                                   background: pink;
+                                   padding: 10px;
+                                   box-sizing:border-box ;
+                                   //背面默认是背对着的,转180度
+                                   transform: rotateY(180deg);
+                                   //背面不可见:从背面即隐藏了元素
+                                   backface-visibility: hidden;
+                                   transition:1s transform ;
+                                }
+                            }
+                        }
+                        .plane1{ width:359px; height:283px; background:url(../img/plane1.png) no-repeat; position:absolute; left:300px; top:-100px; transition:1s;}
+                        .plane2{ width:309px; height:249px; background:url(../img/plane2.png) no-repeat; position:absolute; left:-100px; top:200px; transition:1s;}
+                        .plane3{ width:230px; height:182px; background:url(../img/plane3.png) no-repeat; position:absolute; left:300px; top:400px; transition:1s;}
+                    }
+                    &.works{
+                        .pencel1{ width:180px; height:97px; background:url(../img/pencel1.png) no-repeat; position:absolute; transition:1s; left:500px; top:0;}
+                        .pencel2{ width:268px; height:38px; background:url(../img/pencel2.png) no-repeat; position:absolute; transition:1s; left:300px; top:250px;}
+                        .pencel3{ width:441px; height:231px; background:url(../img/pencel3.png) no-repeat; position:absolute; transition:1s; left:650px; top:300px;}
+                        .works1{
+                            .commonTitle();
+                            margin: 50px 0px 100px 50px;
+                        }
+                        .works2{
+                            margin-left: 50px;
+                            .item{
+                                width: 220px;
+                                height: 133px;
+                                float: left;
+                                position: relative;
+                                margin: 0 1px;
+                                overflow: hidden;
+                                &:last-child{
+                                    width:332px
+                                }
+                                &:hover{
+                                    .mask{
+                                         opacity: 1;
+                                    }
+                                    img{
+                                        transform: scale(1.5) rotate(45deg);
+                                    }  
+                                }
+                                img{
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    transition: .8s transform;
+                                }
+                                .mask{
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: rgba(0,0,0,.6);
+                                    //盒模型为boder-box;
+                                    box-sizing: border-box;
+                                    padding: 15px;
+                                    opacity: 0;
+                                    transition: .8s opacity;
+                                    //开启图层:有透明度变化时,开启图层会减少步数
+                                    will-change:transform;
+                                    .text{
+                                        color: white;
+                                    }
+                                    .icon{
+                                        display: block;
+                                        width:32px ;
+                                        height: 34px;
+                                        background: pink;
+                                        margin: 0 auto;
+                                        margin-top: 10px;
+                                        background: url(../img/zoomico.png) no-repeat;
+                                        transition: .8s background-position;
+                                        &:hover{
+                                            background-position:0 -36px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .works3{
+                            width: 167px;
+                            height: 191px;
+                            background: url(../img/robot.png) no-repeat;
+                            position: absolute;
+                            left: 900px;
+                            top: 170px;
+                            animation: 5s works3Move infinite linear;
+                            //执行 works3Move 动画 ,在引入animation文件
+                        }
+                    }
+                    &.about{
+                        .about1{
+                            margin: 50px 0 100px 50px;
+                            span{
+                                .commonTitle();   
+                            }
+                        }
+                        .about2{
+                            width: 400px;
+                            margin-left: 50px;
+                            p{
+                                .commonText();   
+                            }
+                        }
+                        .about3{
+                            .item{
+                                width: 260px;
+                                height: 200px;
+                                position: absolute;
+                                z-index: 2;
+                                border: 5px solid rgba(255,255,255,0.5);
+                                border-radius:8px;
+                                overflow: hidden;
+                                transition: 1s transform;
+                                &:hover{
+                                    & > img{
+                                        transform: scale(1);
+                                    }
+                                }
+                                &:nth-of-type(1){
+                                   left: 750px;
+                                   top: 50px;
+                                }
+                                &:nth-of-type(2){
+                                    left:600px; 
+                                    top:290px;
+                                }
+                                & > img{
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    transform: scale(1.5);
+                                    transition:1s transform;
+                                }
+                                & > ul{
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    & > li{
+                                        float: left;
+                                        position: relative;
+                                        overflow: hidden;
+                                        & > img{
+                                            position: absolute;
+                                            transition:1s left,1s top;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .about4{
+                            position: absolute;
+                            left: 50%;
+                            top: -50px;
+                            width: 357px;
+                            height: 998px;
+                            background: url(../img/greenLine.png) no-repeat;
+                        }
+                    }
+                    &.team{
+                        .team1{
+                            transition:1s transform;
+                            width: 400px;
+                            margin: 50px;
+                            float: left;
+                            span{
+                               .commonTitle(); 
+                            }
+                        }
+                        .team2{
+                            transition:1s transform;
+                            width: 400px;
+                            margin: 50px;
+                            float: right;
+                            p{
+                                .commonText(); 
+                            }
+                        }
+                        .team3{
+                            width: 944px;
+                            height: 448px;
+                            position: absolute;
+                            left:50%;
+                            bottom:-200px ;
+                            margin-left: -472px;
+                            ul{
+                                width: 100%;
+                                height: 100%;
+                                li{
+                                    float: left;
+                                    width: 118px;
+                                    height: 100%;
+                                    background: url(../img/team.png) no-repeat;
+                                    transition: 1s opacity;
+                                    will-change:transform;
+                                    &:nth-of-type(1){}
+                                    &:nth-of-type(2){background-position:-118px 0;}
+                                    &:nth-of-type(3){background-position:-236px 0;}
+                                    &:nth-of-type(4){background-position:-354px 0;}
+                                    &:nth-of-type(5){background-position:-472px 0;}
+                                    &:nth-of-type(6){background-position:-590px 0;}
+                                    &:nth-of-type(7){background-position:-708px 0;}
+                                    &:nth-of-type(8){background-position:-826px 0;}
+                                }
+                            }
+                            canvas{
+                                position: absolute;
+                                top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & > .dot{
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            span{
+                display: block;
+                width: 20px;
+                height: 20px;
+                border-radius:50% ;
+                border: 2px solid pink;
+                margin-top: 5px;
+                &.active{
+                    background: white;
+                }
+            }
+        }
+    }
+}
